@@ -1,0 +1,219 @@
+/* ========================================
+   RESPONSIVE FIXES - iPhone
+======================================== */
+
+/* Fix pour les cartes d'exercices */
+.exercise-card {
+  margin-bottom: 1rem;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--surface-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Fix pour le header de la carte */
+.exercise-header {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  min-height: 60px;
+}
+
+.exercise-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.exercise-title {
+  flex: 1;
+  min-width: 0; /* Important pour le text-overflow */
+}
+
+.exercise-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+
+.exercise-details {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0.25rem 0 0 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Fix pour la navigation des semaines */
+.week-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  background: var(--surface-color);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.week-nav-btn {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 50%;
+  background: var(--background-color);
+  border: 2px solid var(--border-color);
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.week-info {
+  flex: 1;
+  text-align: center;
+  min-width: 0;
+}
+
+.week-current {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.week-date {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Fix pour le conteneur principal */
+.container {
+  max-width: 100%;
+  padding: 0 1rem 5rem 1rem;
+  margin: 0 auto;
+}
+
+/* Fix pour le main-content */
+.main-content {
+  padding-top: 60px;
+  padding-bottom: 80px;
+  min-height: 100vh;
+}
+
+/* Media Queries pour iPhone */
+@media screen and (max-width: 428px) {
+  /* iPhone 14 Pro Max et similaires */
+  .exercise-name {
+    font-size: 1rem;
+  }
+  
+  .exercise-details {
+    font-size: 0.8rem;
+  }
+  
+  .week-current {
+    font-size: 1.1rem;
+  }
+  
+  .week-date {
+    font-size: 0.85rem;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  /* iPhone 14 Pro, 13 Pro, 12 Pro */
+  .exercise-header {
+    padding: 0.875rem;
+  }
+  
+  .exercise-name {
+    font-size: 0.95rem;
+  }
+  
+  .exercise-icon {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  /* iPhone SE, 13 mini */
+  .container {
+    padding: 0 0.75rem 5rem 0.75rem;
+  }
+  
+  .exercise-header {
+    padding: 0.75rem;
+    gap: 0.5rem;
+  }
+  
+  .exercise-name {
+    font-size: 0.9rem;
+  }
+  
+  .exercise-details {
+    font-size: 0.75rem;
+    gap: 0.375rem;
+  }
+  
+  .week-navigation {
+    padding: 0.875rem;
+    gap: 0.75rem;
+  }
+  
+  .week-nav-btn {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Fix pour le safe area sur iPhone avec notch */
+@supports (padding: max(0px)) {
+  .header {
+    padding-top: max(0.5rem, env(safe-area-inset-top));
+  }
+  
+  .bottom-nav {
+    padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+  }
+  
+  .main-content {
+    padding-top: calc(60px + max(0px, env(safe-area-inset-top)));
+    padding-bottom: calc(80px + max(0px, env(safe-area-inset-bottom)));
+  }
+}
+
+/* Fix pour éviter le zoom sur les inputs sur iPhone */
+input, select, textarea {
+  font-size: 16px !important;
+}
+
+/* Fix pour les boutons qui ne s'affichent pas bien */
+button {
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Amélioration de la lisibilité des emojis */
+.exercise-icon,
+.nav-item-icon,
+.header-icon {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI Emoji", "Apple Color Emoji", sans-serif;
+  line-height: 1;
+}
